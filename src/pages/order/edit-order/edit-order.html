@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> {{ title }} </ion-title>
+    <ion-buttons end padding-right>
+      <button ion-button (click)="onSubmit()" color="primary" icon-start>
+        <ion-icon color="primary" name="md-checkmark-circle"></ion-icon>
+        Enviar Pedido
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let item of listItemOrder">
+      <ion-thumbnail item-start>
+        <img src="https://i1.wp.com/riosoftice.com.br/wp-content/uploads/2017/03/Pao_de_Hamburguer_Riviera_G_CT_Lanche.png">
+      </ion-thumbnail>
+      <h1> {{ item.product.name }} </h1>
+      <h2> {{ item.product.price + " R$"}}</h2>
+      <h2> {{ item.amount + " Unidades"}}</h2>
+      <h2> {{ item.price_total + " R$"}}</h2>
+      <button ion-button (click)="remove(item)">
+        Excluir
+        <ion-icon color="primary" name="md-trash"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>

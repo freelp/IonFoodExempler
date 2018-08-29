@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>{{ title }}</ion-title>
+  <ion-buttons end>
+    <button ion-button color="primary" (click)="onSubmit()">
+      Concluir
+    </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <img src="https://i1.wp.com/riosoftice.com.br/wp-content/uploads/2017/03/Pao_de_Hamburguer_Riviera_G_CT_Lanche.png" height="30%">
+  <ion-label>Nome:</ion-label>
+  <h1>{{ product.name }}</h1>
+  <ion-label color="dark">Detalhes:</ion-label>
+  <h2>{{ product.detail }}</h2>
+  <ion-label>Preço:</ion-label>
+  <h1> {{ product.price }}</h1>
+
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-label floating>Quantidade</ion-label>
+      <ion-input type="number" formControlName="amount"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Observações</ion-label>
+      <ion-input type="text" formControlName="note"></ion-input>
+    </ion-item>
+  </form>
+
+</ion-content>

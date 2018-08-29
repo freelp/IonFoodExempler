@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center> {{title}} </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div id="recaptcha-container"></div>
+
+  <div [hidden]="hiddeDiv">
+    <form [formGroup]="formPhone">
+
+      <ion-item>
+        <ion-label floating>DDD</ion-label>
+        <ion-input type="number" formControlName="dddNumber" minlength="2" maxlength="2"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Numero de Telefone</ion-label>
+        <ion-input type="number" formControlName="phoneNumber" minlength="9" maxlength="9"></ion-input>
+      </ion-item>
+
+      <button ion-button full color="primary" (click)="sendCode()" [disabled]="!formPhone.valid">Receber Codigo SMS</button>
+    </form>
+  </div>
+
+  <div [hidden]="!hiddeDiv">
+    <form [formGroup]="formCode">
+
+      <ion-item>
+        <ion-label floating>Codigo de Verificação</ion-label>
+        <ion-input type="number" formControlName="codeVerify" minlength="6" maxlength="6"></ion-input>
+      </ion-item>
+
+      <button ion-button full color="primary" (click)="verifyCode()" [disabled]="!formCode.valid">Validar Codigo</button>
+      <button ion-button color="danger" outline (click)="phoneErr()"> Numero Errado ?</button>
+    </form>
+  </div>
+
+</ion-content>

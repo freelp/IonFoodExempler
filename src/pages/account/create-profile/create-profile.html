@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>{{ title }}</ion-title>
+    <ion-buttons end>
+      <button ion-button color="primary" (click)="onSubmit()">
+        Concluir
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="form">
+
+    <img src="http://jachymkellar.eu/public/img/login.svg" height="200px" />
+    <ion-item>
+      <ion-label floating>Nome do Usuario</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <br>
+
+    <ion-card>
+      <ion-card-header text-center>
+        <h2>Endereço de Entrega</h2>
+      </ion-card-header>
+      <ion-card-content>
+
+        <ion-item>
+          <ion-label floating>Rua</ion-label>
+          <ion-input type="text" formControlName="street"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Nº da Residencia/Apto</ion-label>
+          <ion-input type="text" formControlName="houseNumber"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Bairro</ion-label>
+          <ion-input type="text" formControlName="district"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Cidade</ion-label>
+          <ion-input type="text" formControlName="city"></ion-input>
+        </ion-item>
+
+      </ion-card-content>
+    </ion-card>
+  </form>
+
+</ion-content>

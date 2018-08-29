@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-navbar>
+
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title text-center>Lista de Produtos</ion-title>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-segment color="primary">
+        <ion-segment-button value="snack" (click)="getListProduct('snack')">
+            <ion-icon name="md-pizza"></ion-icon>
+            Lanches
+        </ion-segment-button>
+        <ion-segment-button value="drink" (click)="getListProduct('drink')">
+            <ion-icon name="md-wine"></ion-icon>
+            Bebidas
+        </ion-segment-button>
+    </ion-segment>
+
+    <ion-list>
+        <ion-item *ngFor="let item of list | async" (click)="editProduct(item)">
+            <ion-thumbnail item-start>
+                <img src="https://i1.wp.com/riosoftice.com.br/wp-content/uploads/2017/03/Pao_de_Hamburguer_Riviera_G_CT_Lanche.png">
+            </ion-thumbnail>
+            <h1> {{ item.name }} </h1>
+            <h2>{{ item.detail}}</h2>
+            <h2 item-end>{{ item.price + " R$"}}</h2>
+        </ion-item>
+    </ion-list>
+
+    <ion-fab bottom right padding>
+        <button ion-fab>
+            <ion-icon name="md-add"></ion-icon>
+        </button>
+        <ion-fab-list side="top" padding-bottom>
+            <div>
+                <ion-label>Lanche</ion-label>
+                <button ion-fab (click)="newProduct('snack')">
+                    <ion-icon color="primary" name="md-pizza"></ion-icon>
+                </button>
+            </div>
+            <div>
+                <ion-label>Bebida</ion-label>
+                <button ion-fab (click)="newProduct('drink')">
+                    <ion-icon color="primary" name="md-wine"></ion-icon>
+                </button>
+            </div>
+        </ion-fab-list>
+    </ion-fab>
+
+</ion-content>

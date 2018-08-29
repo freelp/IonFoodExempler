@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center> {{ title }} </ion-title>
+
+    <ion-buttons end padding-right>
+      <button ion-button (click)="signOut()" color="primary" icon-end>
+        Sair
+        <ion-icon color="primary" name="md-log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <img src="http://jachymkellar.eu/public/img/login.svg" height="200px" />
+    <ion-card-content>
+      <ion-card-title text-center>
+        {{ user.name }}
+      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header text-center>
+      <h1 icon-start>
+        <ion-icon name="md-information-circle"></ion-icon>
+        Informações do Perfil
+      </h1>
+    </ion-card-header>
+
+    <ion-list>
+      <ion-item>
+        <ion-icon name="md-call" item-start></ion-icon>
+        <h1>Telefone</h1>
+        <h3>{{user.phone}}</h3>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="md-compass" item-start></ion-icon>
+        <h1>Endereço</h1>
+        <h2>Rua: {{user.street}} Nº {{user.houseNumber}} </h2>
+        <h2>Bairro: {{user.district}} </h2>
+        <h2>Cidade: {{user.city}} </h2>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header text-center>
+      <h1 icon-start>
+        <ion-icon name="cart"></ion-icon>
+        Meus Pedidos
+      </h1>
+    </ion-card-header>
+
+    <ion-list>
+      <button ion-item>
+        <ion-icon name="md-clock" item-start></ion-icon>
+        Pedidos em Processo
+      </button>
+      <button ion-item>
+        <ion-icon name="ios-restaurant" item-start></ion-icon>
+        Pedidos Concluidos
+      </button>
+    </ion-list>
+  </ion-card>
+
+
+
+</ion-content>

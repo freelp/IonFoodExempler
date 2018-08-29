@@ -1,0 +1,13 @@
+{
+  "name": "Food PWa",
+  "short_name": "Food App",
+  "start_url": "index.html",
+  "display": "fullscreen",
+  "icons": [{
+    "src": "assets/imgs/logo.png",
+    "sizes": "352x352",
+    "type": "image/png"
+  }],
+  "background_color": "#C62828",
+  "theme_color": "#C62828"
+}

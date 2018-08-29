@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar>
+
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title text-center>{{ title }}</ion-title>
+
+    <ion-buttons end type="submit" (click)="onSubmit()">
+      <button ion-button icon-only color="primary" [disabled]="!form.valid">
+        Salvar
+        <ion-icon name="md-checkmark-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="form">
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating> Nome </ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!form.controls.name.valid && (form.controls.name.dirty || form.controls.name.touched)" color="danger">
+        <div [hidden]="!form.controls.name.errors.required">
+          O campo é obrigatorio
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating> Ingredientes || Capaciade </ion-label>
+        <ion-input type="text" formControlName="detail"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!form.controls.detail.valid && (form.controls.detail.dirty || form.controls.detail.touched)" color="danger">
+        <div [hidden]="!form.controls.detail.errors.required">
+          O campo é obrigatorio
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating> Preço R$ </ion-label>
+        <ion-input type="number" formControlName="price"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!form.controls.price.valid && (form.controls.price.dirty || form.controls.price.touched)" color="danger">
+        <div [hidden]="!form.controls.price.errors.required">
+          O campo é obrigatorio
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Adicionar ao Cardapio</ion-label>
+        <ion-checkbox color="primary" formControlName="available"></ion-checkbox>
+      </ion-item>
+
+    </ion-list>
+  </form>
+</ion-content>
